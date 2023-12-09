@@ -17,16 +17,19 @@ class CategoryCard extends StatelessWidget {
       onTap: () {
         onCategoryClick();
       },
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            category.color.withOpacity(0.5), // böyle yazabilrsin
-            category.color.withOpacity(0.9),
-            //Colors.limeAccent.withOpacity(0.9),
-          ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              category.color.withOpacity(0.5), // böyle yazabilrsin
+              category.color.withOpacity(0.9),
+              //Colors.limeAccent.withOpacity(0.9),
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+          ),
+          child: Text(category.name), // tasarımı global theme den almalısın
         ),
-        child: Text(category.name), // tasarımı global theme den almalısın
       ),
     );
   }

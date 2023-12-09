@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mealsapp/data/dummy_data.dart';
 import 'package:mealsapp/models/category.dart';
+import 'package:mealsapp/screens/favorites.dart';
 import 'package:mealsapp/screens/meals.dart';
 import 'package:mealsapp/widgets/category_card.dart';
 
@@ -19,6 +20,14 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (ctx) => const Favorites()));
+              },
+              icon: const Icon(Icons.favorite_outlined)),
+        ],
         title: const Text("Bir kategori seçiniz"),
       ),
       body: GridView(
@@ -27,10 +36,10 @@ class Categories extends StatelessWidget {
             const SliverGridDelegateWithFixedCrossAxisCount(
                 // crosAxisSpacing yatay boşluk, mainAxisSpacing dikey boşluk verir.
                 crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
                 // width / height  (genişliğin uzunluğa oranı)
-                childAspectRatio: 1.5),
+                childAspectRatio: 1.25),
         // categoryList'deki her bir eleman için CategoryCard() eklenir.
         children: [
           for (final c in categoryList)
@@ -43,15 +52,15 @@ class Categories extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
+          children: const [
+            DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blueGrey,
               ),
               child: Text("Drawer Header"),
             ),
             ListTile(
-              title: const Text("Home"),
+              title: Text("Home"),
             ),
           ],
         ),
