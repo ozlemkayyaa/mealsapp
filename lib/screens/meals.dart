@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mealsapp/data/dummy_data.dart';
 import 'package:mealsapp/models/category.dart';
 import 'package:mealsapp/models/meal.dart';
-import 'package:mealsapp/providers/meals_provider.dart';
+//import 'package:mealsapp/providers/meals_provider.dart';
 import 'package:mealsapp/widgets/meal_card.dart';
 
 class Meals extends ConsumerWidget {
@@ -16,7 +16,7 @@ class Meals extends ConsumerWidget {
 
     // ref.watch komutu sayesinde mealsProvider kısmındaki verileri izleyebilirsin
 
-    List<Meal> mealsFromState = ref.watch(mealsProvider);
+    //List<Meal> mealsFromState = ref.watch(mealsProvider);
 
     List<Meal> meals =
         mealList.where((element) => element.categoryId == category.id).toList();
